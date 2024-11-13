@@ -22,4 +22,18 @@ describe('multiply', () => {
   it('should return zero when both numbers are zero', () => {
     expect(multiply(0, 0)).toBe(0);
   });
+
+  it('should handle multiplying by one correctly', () => {
+    expect(multiply(1, 7)).toBe(7);
+    expect(multiply(7, 1)).toBe(7);
+  });
+
+  it('should handle multiplying by negative one correctly', () => {
+    expect(multiply(-1, 7)).toBe(-7);
+    expect(multiply(7, -1)).toBe(-7);
+  });
+
+  it('should handle multiplying large numbers correctly', () => {
+    expect(multiply(1000000, 1000000)).toBe(1000000000000);
+  });
 });

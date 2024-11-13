@@ -36,4 +36,9 @@ describe('multiply', () => {
   it('should handle multiplying large numbers correctly', () => {
     expect(multiply(1000000, 1000000)).toBe(1000000000000);
   });
+
+  it('should handle decimal numbers correctly', () => {
+    expect(multiply(0.5, 0.5)).toBe(0.25);
+    expect(multiply(1.5, 2)).toBe(3);
+  });
 });

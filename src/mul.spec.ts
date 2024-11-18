@@ -7,7 +7,7 @@ describe('multiply', () => {
   });
 
   it('should return the product of a positive and a negative number', () => {
-    expect(multiply(-2, 3)).toBe(-6);
+    expect(multiply(2, -3)).toBe(-6);
   });
 
   it('should return the product of two negative numbers', () => {

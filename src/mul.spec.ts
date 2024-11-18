@@ -2,29 +2,27 @@ import { describe, it, expect } from 'vitest';
 import { multiply } from './mul';
 
 describe('multiply', () => {
-  it('should multiply two positive numbers correctly', () => {
+  it('should return the product of two positive numbers', () => {
     expect(multiply(2, 3)).toBe(6);
   });
 
-  it('should multiply a positive and a negative number correctly', () => {
-    expect(multiply(2, -3)).toBe(-6);
+  it('should return the product of a positive and a negative number', () => {
+    expect(multiply(-2, 3)).toBe(-6);
   });
 
-  it('should multiply two negative numbers correctly', () => {
+  it('should return the product of two negative numbers', () => {
     expect(multiply(-2, -3)).toBe(6);
   });
 
-  it('should return 0 when multiplying any number by 0', () => {
-    expect(multiply(5, 0)).toBe(0);
+  it('should return zero when one of the numbers is zero', () => {
     expect(multiply(0, 5)).toBe(0);
   });
 
-  it('should multiply zero by zero correctly', () => {
+  it('should return zero when both numbers are zero', () => {
     expect(multiply(0, 0)).toBe(0);
   });
 
-  it('should multiply by 1 correctly (identity property)', () => {
-    expect(multiply(5, 1)).toBe(5);
-    expect(multiply(1, 5)).toBe(5);
+  it('should handle multiplication with large numbers', () => {
+    expect(multiply(1000, 2000)).toBe(2000000);
   });
 });

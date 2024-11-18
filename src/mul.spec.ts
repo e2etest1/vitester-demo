@@ -14,12 +14,17 @@ describe('multiply', () => {
     expect(multiply(-2, -3)).toBe(6);
   });
 
-  it('should return zero when multiplying by zero', () => {
+  it('should return zero when one of the numbers is zero', () => {
     expect(multiply(0, 5)).toBe(0);
     expect(multiply(5, 0)).toBe(0);
   });
 
-  it('should return zero when multiplying zero by zero', () => {
+  it('should return zero when both numbers are zero', () => {
     expect(multiply(0, 0)).toBe(0);
+  });
+
+  it('should handle multiplication with floating point numbers', () => {
+    expect(multiply(2.5, 4)).toBe(10);
+    expect(multiply(2.5, -4)).toBe(-10);
   });
 });

@@ -7,19 +7,19 @@ describe('multiply', () => {
   });
 
   it('should return the product of a positive and a negative number', () => {
-    expect(multiply(-2, 3)).toBe(-6);
+    expect(multiply(2, -3)).toBe(-6);
+  });
+
+  it('should return zero when multiplying by zero', () => {
+    expect(multiply(0, 5)).toBe(0);
+    expect(multiply(5, 0)).toBe(0);
   });
 
   it('should return the product of two negative numbers', () => {
     expect(multiply(-2, -3)).toBe(6);
   });
 
-  it('should return zero when one of the numbers is zero', () => {
-    expect(multiply(0, 5)).toBe(0);
-    expect(multiply(5, 0)).toBe(0);
-  });
-
-  it('should return zero when both numbers are zero', () => {
-    expect(multiply(0, 0)).toBe(0);
+  it('should handle large numbers', () => {
+    expect(multiply(1000000, 2000000)).toBe(2000000000000);
   });
 });

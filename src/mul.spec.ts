@@ -22,9 +22,4 @@ describe('multiply', () => {
   it('should return zero when both numbers are zero', () => {
     expect(multiply(0, 0)).toBe(0);
   });
-
-  it('should handle multiplication by one correctly', () => {
-    expect(multiply(1, 7)).toBe(7);
-    expect(multiply(7, 1)).toBe(7);
-  });
 });

@@ -31,4 +31,24 @@ describe('multiply', () => {
   it('should multiply one by one', () => {
     expect(multiply(1, 1)).toBe(1);
   });
+
+  it('should handle multiplying large numbers', () => {
+    expect(multiply(1e10, 1e10)).toBe(1e20);
+  });
+
+  it('should handle multiplying by fractional numbers', () => {
+    expect(multiply(0.5, 0.2)).toBeCloseTo(0.1);
+  });
+
+  it('should handle multiplying very small numbers', () => {
+    expect(multiply(1e-10, 1e-10)).toBeCloseTo(1e-20);
+  });
+
+  it('should handle multiplying a negative and a fractional number', () => {
+    expect(multiply(-0.5, 0.2)).toBeCloseTo(-0.1);
+  });
+
+  it('should handle multiplying large and small numbers', () => {
+    expect(multiply(1e10, 1e-10)).toBeCloseTo(1);
+  });
 });

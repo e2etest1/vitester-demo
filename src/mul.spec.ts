@@ -45,4 +45,12 @@ describe('multiply', () => {
   it('should handle multiplying by fractions correctly', () => {
     expect(multiply(0.5, 0.5)).toBe(0.25);
   });
+
+  it('should handle edge case of multiplying by very small numbers', () => {
+    expect(multiply(1e-10, 1e-10)).toBeCloseTo(1e-20);
+  });
+
+  it('should handle edge case of multiplying by very large positive and negative numbers', () => {
+    expect(multiply(1e10, -1e10)).toBe(-1e20);
+  });
 });

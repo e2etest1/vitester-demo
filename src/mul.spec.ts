@@ -31,4 +31,14 @@ describe('multiply', () => {
     expect(multiply(1.5, 2)).toBe(3);
     expect(multiply(-1.5, 2)).toBe(-3);
   });
+
+  it('should handle very large numbers without overflow', () => {
+    expect(multiply(Number.MAX_SAFE_INTEGER, 1)).toBe(Number.MAX_SAFE_INTEGER);
+    expect(multiply(Number.MAX_SAFE_INTEGER, 0)).toBe(0);
+  });
+
+  it('should handle very small numbers', () => {
+    expect(multiply(Number.MIN_VALUE, 1)).toBe(Number.MIN_VALUE);
+    expect(multiply(Number.MIN_VALUE, 0)).toBe(0);
+  });
 });

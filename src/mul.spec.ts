@@ -44,4 +44,25 @@ describe('multiply', () => {
   it('should handle multiplication of very large and very small numbers', () => {
     expect(multiply(1e10, 1e-10)).toBeCloseTo(1, 10);
   });
+
+  it('should handle multiplication involving NaN', () => {
+    expect(multiply(NaN, 5)).toBeNaN();
+    expect(multiply(5, NaN)).toBeNaN();
+  });
+
+  it('should handle multiplication involving Infinity', () => {
+    expect(multiply(Infinity, 5)).toBe(Infinity);
+    expect(multiply(5, Infinity)).toBe(Infinity);
+    expect(multiply(Infinity, -5)).toBe(-Infinity);
+    expect(multiply(-5, Infinity)).toBe(-Infinity);
+    expect(multiply(Infinity, 0)).toBeNaN();
+    expect(multiply(0, Infinity)).toBeNaN();
+  });
+
+  it('should handle multiplication involving negative Infinity', () => {
+    expect(multiply(-Infinity, 5)).toBe(-Infinity);
+    expect(multiply(5, -Infinity)).toBe(-Infinity);
+    expect(multiply(-Infinity, -5)).toBe(Infinity);
+    expect(multiply(-5, -Infinity)).toBe(Infinity);
+  });
 });

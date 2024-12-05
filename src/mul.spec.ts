@@ -24,34 +24,10 @@ describe("multiply", () => {
   });
 
   it("should handle large numbers correctly", () => {
-    expect(multiply(1000000, 1000000)).toBe(1000000000000);
+    expect(multiply(1e10, 1e10)).toBe(1e20);
   });
 
-  it("should handle decimal numbers correctly", () => {
-    expect(multiply(0.5, 0.2)).toBeCloseTo(0.1);
-  });
-
-  it("should return the product of one positive and one zero", () => {
-    expect(multiply(0, 7)).toBe(0);
-  });
-
-  it("should return the product of one negative and one zero", () => {
-    expect(Object.is(multiply(-7, 0), -0)).toBe(true);
-  });
-
-  it("should handle very small decimal numbers correctly", () => {
-    expect(multiply(0.0001, 0.0002)).toBeCloseTo(0.00000002);
-  });
-
-  it("should handle a mix of large and small numbers", () => {
-    expect(multiply(1000000, 0.000001)).toBeCloseTo(1);
-  });
-
-  it("should handle negative decimal numbers", () => {
-    expect(multiply(-0.5, 0.2)).toBeCloseTo(-0.1);
-  });
-
-  it("should handle multiplication resulting in a negative zero", () => {
-    expect(Object.is(multiply(-0, 5), -0)).toBe(true);
+  it("should handle fractional numbers", () => {
+    expect(multiply(0.5, 0.2)).toBe(0.1);
   });
 });

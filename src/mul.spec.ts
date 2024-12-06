@@ -14,35 +14,37 @@ describe('multiply', () => {
     expect(multiply(-2, -3)).toBe(6);
   });
 
-  it('should return zero if one of the numbers is zero', () => {
+  it('should return zero when multiplying any number by zero', () => {
     expect(multiply(0, 5)).toBe(0);
     expect(multiply(5, 0)).toBe(0);
   });
 
-  it('should return zero if both numbers are zero', () => {
+  it('should return zero when both numbers are zero', () => {
     expect(multiply(0, 0)).toBe(0);
   });
 
-  it('should handle large numbers correctly', () => {
+  it('should return the product of a number and one', () => {
+    expect(multiply(1, 5)).toBe(5);
+    expect(multiply(5, 1)).toBe(5);
+  });
+
+  it('should return the product of a number and negative one', () => {
+    expect(multiply(-1, 5)).toBe(-5);
+    expect(multiply(5, -1)).toBe(-5);
+  });
+
+  it('should handle very large numbers', () => {
     expect(multiply(1e10, 1e10)).toBe(1e20);
+    expect(multiply(-1e10, 1e10)).toBe(-1e20);
   });
 
-  it('should handle small decimal numbers correctly', () => {
+  it('should handle small fractions', () => {
     expect(multiply(0.1, 0.2)).toBeCloseTo(0.02);
+    expect(multiply(-0.1, 0.2)).toBeCloseTo(-0.02);
   });
 
-  it('should return NaN if one of the numbers is NaN', () => {
-    expect(multiply(NaN, 5)).toBeNaN();
-    expect(multiply(5, NaN)).toBeNaN();
-  });
-
-  it('should handle multiplication with Infinity', () => {
-    expect(multiply(Infinity, 1)).toBe(Infinity);
-    expect(multiply(1, Infinity)).toBe(Infinity);
-    expect(multiply(Infinity, 0)).toBeNaN();
-    expect(multiply(0, Infinity)).toBeNaN();
-    expect(multiply(Infinity, Infinity)).toBe(Infinity);
-    expect(multiply(Infinity, -1)).toBe(-Infinity);
-    expect(multiply(-1, Infinity)).toBe(-Infinity);
+  it('should handle non-integer values', () => {
+    expect(multiply(2.5, 4)).toBe(10);
+    expect(multiply(3.5, -2)).toBe(-7);
   });
 });

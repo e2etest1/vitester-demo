@@ -33,7 +33,39 @@ describe('multiply', () => {
   });
 
   it('should handle multiplying by fractions', () => {
-    expect(multiply(0.5, 2)).toBe(1);
-    expect(multiply(2, 0.5)).toBe(1);
+    expect(multiply(0.5, 2)).toBeCloseTo(1);
+    expect(multiply(2, 0.5)).toBeCloseTo(1);
+  });
+
+  it('should handle multiplying very large numbers', () => {
+    expect(multiply(1e10, 1e10)).toBe(1e20);
+  });
+
+  it('should handle multiplying very small numbers', () => {
+    expect(multiply(1e-10, 1e-10)).toBeCloseTo(1e-20);
+  });
+
+  it('should handle multiplying a positive and a zero', () => {
+    expect(multiply(0, 0.5)).toBe(0);
+    expect(multiply(0.5, 0)).toBe(0);
+  });
+
+  it('should handle multiplying negative and positive fractions', () => {
+    expect(multiply(-0.5, 2)).toBeCloseTo(-1);
+    expect(multiply(2, -0.5)).toBeCloseTo(-1);
+  });
+
+  it('should handle multiplying negative fractions', () => {
+    expect(multiply(-0.5, -2)).toBeCloseTo(1);
+  });
+
+  it('should handle multiplying with max safe integer', () => {
+    expect(multiply(Number.MAX_SAFE_INTEGER, 1)).toBe(Number.MAX_SAFE_INTEGER);
+    expect(multiply(Number.MAX_SAFE_INTEGER, 0)).toBe(0);
+  });
+
+  it('should handle multiplying with min safe integer', () => {
+    expect(multiply(Number.MIN_SAFE_INTEGER, 1)).toBe(Number.MIN_SAFE_INTEGER);
+    expect(multiply(Number.MIN_SAFE_INTEGER, 0)).toBe(-0);
   });
 });

@@ -34,11 +34,16 @@ describe('multiply', () => {
   });
 
   it('should handle large numbers', () => {
-    expect(multiply(100000, 100000)).toBe(10000000000);
+    expect(multiply(1e10, 1e10)).toBe(1e20);
+    expect(multiply(-1e10, 1e10)).toBe(-1e20);
+    expect(multiply(1e10, -1e10)).toBe(-1e20);
+    expect(multiply(-1e10, -1e10)).toBe(1e20);
   });
 
-  it('should handle decimal numbers', () => {
-    expect(multiply(2.5, 4)).toBe(10);
-    expect(multiply(-2.5, 4)).toBe(-10);
+  it('should handle small decimal numbers', () => {
+    expect(multiply(0.1, 0.2)).toBeCloseTo(0.02);
+    expect(multiply(-0.1, 0.2)).toBeCloseTo(-0.02);
+    expect(multiply(0.1, -0.2)).toBeCloseTo(-0.02);
+    expect(multiply(-0.1, -0.2)).toBeCloseTo(0.02);
   });
 });

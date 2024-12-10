@@ -32,4 +32,13 @@ describe('multiply', () => {
   it('should handle multiplying two zeros', () => {
     expect(multiply(0, 0)).toBe(0);
   });
+
+  it('should handle large numbers', () => {
+    expect(multiply(100000, 100000)).toBe(10000000000);
+  });
+
+  it('should handle decimal numbers', () => {
+    expect(multiply(2.5, 4)).toBe(10);
+    expect(multiply(-2.5, 4)).toBe(-10);
+  });
 });

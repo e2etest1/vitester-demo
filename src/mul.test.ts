@@ -32,4 +32,17 @@ describe('multiply', () => {
     expect(multiply(-1, 7)).toBe(-7);
     expect(multiply(7, -1)).toBe(-7);
   });
+
+  it('should multiply large numbers', () => {
+    expect(multiply(1000000, 1000000)).toBe(1000000000000);
+  });
+
+  it('should multiply decimal numbers', () => {
+    expect(multiply(1.5, 2.5)).toBe(3.75);
+    expect(multiply(-1.5, 2.5)).toBe(-3.75);
+  });
+
+  it('should multiply very small numbers', () => {
+    expect(multiply(0.0001, 0.0002)).toBe(0.00000002);
+  });
 });

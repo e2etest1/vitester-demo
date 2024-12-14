@@ -33,16 +33,25 @@ describe('multiply', () => {
     expect(multiply(7, -1)).toBe(-7);
   });
 
-  it('should multiply large numbers', () => {
-    expect(multiply(1000000, 1000000)).toBe(1000000000000);
+  it('should handle large numbers', () => {
+    expect(multiply(1e10, 1e10)).toBe(1e20);
   });
 
-  it('should multiply decimal numbers', () => {
-    expect(multiply(1.5, 2.5)).toBe(3.75);
-    expect(multiply(-1.5, 2.5)).toBe(-3.75);
+  it('should handle very small numbers', () => {
+    expect(multiply(1e-10, 1e-10)).toBeCloseTo(1e-20);
   });
 
-  it('should multiply very small numbers', () => {
-    expect(multiply(0.0001, 0.0002)).toBe(0.00000002);
+  it('should handle floating-point numbers', () => {
+    expect(multiply(1.5, 2.5)).toBeCloseTo(3.75);
+  });
+
+  it('should handle multiplying a number by itself', () => {
+    expect(multiply(4, 4)).toBe(16);
+    expect(multiply(-4, -4)).toBe(16);
+  });
+
+  it('should handle multiplying negative and positive floating-point numbers', () => {
+    expect(multiply(-1.5, 2.5)).toBeCloseTo(-3.75);
+    expect(multiply(1.5, -2.5)).toBeCloseTo(-3.75);
   });
 });

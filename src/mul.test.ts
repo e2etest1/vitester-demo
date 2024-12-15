@@ -26,4 +26,29 @@ describe('multiply', () => {
   it('should multiply large numbers', () => {
     expect(multiply(1000000, 1000000)).toBe(1000000000000);
   });
+
+  it('should handle multiplication by one', () => {
+    expect(multiply(1, 7)).toBe(7);
+    expect(multiply(7, 1)).toBe(7);
+  });
+
+  it('should handle multiplication by negative one', () => {
+    expect(multiply(-1, 7)).toBe(-7);
+    expect(multiply(7, -1)).toBe(-7);
+  });
+
+  it('should handle multiplication of decimal numbers', () => {
+    expect(multiply(0.5, 2)).toBe(1);
+    expect(multiply(2, 0.5)).toBe(1);
+    expect(multiply(-0.5, 2)).toBe(-1);
+    expect(multiply(2, -0.5)).toBe(-1);
+  });
+
+  it('should handle multiplication of very small numbers', () => {
+    expect(multiply(1e-10, 1e-10)).toBeCloseTo(1e-20);
+  });
+
+  it('should handle multiplication of very large and very small numbers', () => {
+    expect(multiply(1e10, 1e-10)).toBeCloseTo(1);
+  });
 });

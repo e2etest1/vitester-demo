@@ -24,10 +24,20 @@ describe('multiply', () => {
   });
 
   it('should handle large numbers', () => {
-    expect(multiply(1000000, 2000000)).toBe(2000000000000);
+    expect(multiply(1e6, 2e6)).toBeCloseTo(2e12);
   });
 
   it('should handle floating point numbers', () => {
     expect(multiply(2.5, 4.2)).toBeCloseTo(10.5);
+  });
+
+  it('should return the same number when multiplying by one', () => {
+    expect(multiply(1, 5)).toBe(5);
+    expect(multiply(5, 1)).toBe(5);
+  });
+
+  it('should return the negation of a number when multiplying by negative one', () => {
+    expect(multiply(-1, 5)).toBe(-5);
+    expect(multiply(5, -1)).toBe(-5);
   });
 });

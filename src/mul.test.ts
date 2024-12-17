@@ -32,4 +32,14 @@ describe('multiply', () => {
     expect(multiply(-1, 5)).toBe(-5);
     expect(multiply(5, -1)).toBe(-5);
   });
+
+  it('should handle multiplication with very large numbers', () => {
+    expect(multiply(1e10, 1e10)).toBe(1e20);
+    expect(multiply(-1e10, 1e10)).toBe(-1e20);
+  });
+
+  it('should handle multiplication with floating-point numbers', () => {
+    expect(multiply(0.1, 0.2)).toBeCloseTo(0.02);
+    expect(multiply(-0.1, 0.2)).toBeCloseTo(-0.02);
+  });
 });

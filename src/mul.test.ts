@@ -29,6 +29,19 @@ describe('multiply', () => {
   });
 
   it('should handle fractional numbers correctly', () => {
-    expect(multiply(0.5, 0.2)).toBe(0.1);
+    expect(multiply(0.5, 0.2)).toBeCloseTo(0.1);
+  });
+
+  it('should handle multiplication with zero correctly', () => {
+    expect(multiply(0, 0)).toBe(0);
+  });
+
+  it('should handle multiplication with negative and zero correctly', () => {
+    expect(multiply(-5, 0)).toBeCloseTo(0);
+    expect(multiply(0, -5)).toBeCloseTo(0);
+  });
+
+  it('should handle multiplication with very small numbers', () => {
+    expect(multiply(1e-6, 1e-6)).toBeCloseTo(1e-12);
   });
 });

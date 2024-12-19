@@ -11,4 +11,14 @@ describe('greet', () => {
     const result = greet('Bob', 'Hi');
     expect(result).toBe('Hi, Bob!');
   });
+
+  it('should return a greeting with "Hello" when name is an empty string', () => {
+    const result = greet('');
+    expect(result).toBe('Hello, !');
+  });
+
+  it('should return a greeting with custom greeting when name is an empty string', () => {
+    const result = greet('', 'Greetings');
+    expect(result).toBe('Greetings, !');
+  });
 });

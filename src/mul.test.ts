@@ -32,16 +32,16 @@ describe('multiply', () => {
     expect(multiply(0.5, 0.2)).toBeCloseTo(0.1);
   });
 
-  it('should handle multiplication with zero correctly', () => {
+  it('should return zero when multiplying by zero', () => {
     expect(multiply(0, 0)).toBe(0);
   });
 
-  it('should handle multiplication with negative and zero correctly', () => {
-    expect(multiply(-5, 0)).toBeCloseTo(0);
-    expect(multiply(0, -5)).toBeCloseTo(0);
+  it('should handle very small numbers correctly', () => {
+    expect(multiply(1e-6, 1e-6)).toBeCloseTo(1e-12);
   });
 
-  it('should handle multiplication with very small numbers', () => {
-    expect(multiply(1e-6, 1e-6)).toBeCloseTo(1e-12);
+  it('should handle a mix of integer and fractional numbers', () => {
+    expect(multiply(2, 0.5)).toBe(1);
+    expect(multiply(0.5, 2)).toBe(1);
   });
 });

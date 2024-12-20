@@ -30,4 +30,17 @@ describe('multiply', () => {
   it('should handle small numbers', () => {
     expect(multiply(0.1, 0.2)).toBeCloseTo(0.02);
   });
+
+  it('should handle one as a multiplier', () => {
+    expect(multiply(1, 5)).toBe(5);
+    expect(multiply(5, 1)).toBe(5);
+    expect(multiply(-1, 5)).toBe(-5);
+    expect(multiply(5, -1)).toBe(-5);
+  });
+
+  it('should handle negative and positive fractions', () => {
+    expect(multiply(-0.5, 0.5)).toBeCloseTo(-0.25);
+    expect(multiply(0.5, -0.5)).toBeCloseTo(-0.25);
+    expect(multiply(-0.5, -0.5)).toBeCloseTo(0.25);
+  });
 });

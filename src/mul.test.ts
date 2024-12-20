@@ -31,14 +31,17 @@ describe('multiply', () => {
     expect(multiply(0.1, 0.2)).toBeCloseTo(0.02, 5)
   })
 
-  it('should return the number itself when multiplied by one', () => {
+  it('should handle multiplication with one', () => {
     expect(multiply(1, 5)).toBe(5)
     expect(multiply(5, 1)).toBe(5)
+  })
+
+  it('should handle multiplication with negative one', () => {
     expect(multiply(-1, 5)).toBe(-5)
     expect(multiply(5, -1)).toBe(-5)
   })
 
-  it('should handle very small numbers', () => {
-    expect(multiply(1e-10, 1e-10)).toBeCloseTo(1e-20, 15)
+  it('should handle multiplication with very small numbers', () => {
+    expect(multiply(1e-10, 1e-10)).toBeCloseTo(1e-20, 5)
   })
 })

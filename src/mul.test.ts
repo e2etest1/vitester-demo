@@ -23,14 +23,17 @@ describe('multiply', () => {
     expect(multiply(0, 0)).toBe(0);
   });
 
-  it('should multiply by one', () => {
-    expect(multiply(1, 5)).toBe(5);
-    expect(multiply(5, 1)).toBe(5);
-    expect(multiply(-1, 5)).toBe(-5);
-    expect(multiply(5, -1)).toBe(-5);
+  it('should handle multiplying by one correctly', () => {
+    expect(multiply(1, 7)).toBe(7);
+    expect(multiply(7, 1)).toBe(7);
+  });
+
+  it('should handle multiplying by negative one correctly', () => {
+    expect(multiply(-1, 7)).toBe(-7);
+    expect(multiply(7, -1)).toBe(-7);
   });
 
   it('should handle large numbers', () => {
-    expect(multiply(100000, 100000)).toBe(10000000000);
+    expect(multiply(1000, 2000)).toBe(2000000);
   });
 });

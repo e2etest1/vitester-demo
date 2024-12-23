@@ -22,4 +22,15 @@ describe('multiply', () => {
   it('should multiply zero by zero', () => {
     expect(multiply(0, 0)).toBe(0);
   });
+
+  it('should multiply by one', () => {
+    expect(multiply(1, 5)).toBe(5);
+    expect(multiply(5, 1)).toBe(5);
+    expect(multiply(-1, 5)).toBe(-5);
+    expect(multiply(5, -1)).toBe(-5);
+  });
+
+  it('should handle large numbers', () => {
+    expect(multiply(100000, 100000)).toBe(10000000000);
+  });
 });

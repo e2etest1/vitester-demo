@@ -26,4 +26,26 @@ describe('multiply', () => {
   it('should handle large numbers correctly', () => {
     expect(multiply(1000000, 1000000)).toBe(1000000000000);
   });
+
+  it('should handle floating-point numbers correctly', () => {
+    expect(multiply(0.1, 0.2)).toBeCloseTo(0.02, 10);
+  });
+
+  it('should handle multiplication by one', () => {
+    expect(multiply(1, 5)).toBe(5);
+    expect(multiply(5, 1)).toBe(5);
+  });
+
+  it('should handle multiplication by negative one', () => {
+    expect(multiply(-1, 5)).toBe(-5);
+    expect(multiply(5, -1)).toBe(-5);
+  });
+
+  it('should return a negative product for one positive and one negative floating-point number', () => {
+    expect(multiply(0.1, -0.2)).toBeCloseTo(-0.02, 10);
+  });
+
+  it('should return a positive product for two negative floating-point numbers', () => {
+    expect(multiply(-0.1, -0.2)).toBeCloseTo(0.02, 10);
+  });
 });

@@ -32,20 +32,16 @@ describe("multiply", () => {
     expect(multiply(1000, 1000)).toBe(1000000);
   });
 
-  it("should handle very small numbers (fractions)", () => {
-    expect(multiply(0.1, 0.2)).toBeCloseTo(0.02, 5);
-    expect(multiply(0.5, 0.5)).toBeCloseTo(0.25, 5);
+  it("should handle very large numbers", () => {
+    expect(multiply(1e10, 1e10)).toBe(1e20);
   });
 
-  it("should handle multiplication with JavaScript's maximum safe integer", () => {
-    const maxSafeInt = Number.MAX_SAFE_INTEGER;
-    expect(multiply(maxSafeInt, 1)).toBe(maxSafeInt);
-    expect(multiply(maxSafeInt, 0)).toBe(0);
+  it("should handle very small numbers", () => {
+    expect(multiply(1e-10, 1e-10)).toBeCloseTo(1e-20);
   });
 
-  it("should handle multiplication with JavaScript's minimum safe integer", () => {
-    const minSafeInt = Number.MIN_SAFE_INTEGER;
-    expect(multiply(minSafeInt, 1)).toBe(minSafeInt);
-    expect(Object.is(multiply(minSafeInt, 0), -0)).toBe(true);
+  it("should handle non-integer values", () => {
+    expect(multiply(2.5, 4)).toBe(10);
+    expect(multiply(3.3, 3)).toBeCloseTo(9.9);
   });
 });

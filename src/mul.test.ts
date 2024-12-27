@@ -26,4 +26,24 @@ describe('multiply', () => {
   it('should handle large numbers correctly', () => {
     expect(multiply(1000000, 1000000)).toBe(1000000000000);
   });
+
+  it('should return the product of a positive number and one', () => {
+    expect(multiply(5, 1)).toBe(5);
+  });
+
+  it('should return the product of a negative number and one', () => {
+    expect(multiply(-5, 1)).toBe(-5);
+  });
+
+  it('should return the product of a number and negative one', () => {
+    expect(multiply(5, -1)).toBe(-5);
+    expect(multiply(-5, -1)).toBe(5);
+  });
+
+  it('should handle fractional numbers correctly', () => {
+    expect(multiply(0.5, 2)).toBe(1);
+    expect(multiply(-0.5, 2)).toBe(-1);
+    expect(multiply(0.5, -2)).toBe(-1);
+    expect(multiply(-0.5, -2)).toBe(1);
+  });
 });

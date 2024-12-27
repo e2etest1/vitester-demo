@@ -27,23 +27,17 @@ describe('multiply', () => {
     expect(multiply(1000000, 1000000)).toBe(1000000000000);
   });
 
-  it('should return the product of a positive number and one', () => {
-    expect(multiply(5, 1)).toBe(5);
+  it('should handle multiplication with Infinity', () => {
+    expect(multiply(Infinity, 1)).toBe(Infinity);
+    expect(multiply(-Infinity, 1)).toBe(-Infinity);
+    expect(multiply(Infinity, 0)).toBeNaN();
   });
 
-  it('should return the product of a negative number and one', () => {
-    expect(multiply(-5, 1)).toBe(-5);
+  it('should handle multiplication with very small floating-point numbers', () => {
+    expect(multiply(1e-10, 1e-10)).toBeCloseTo(1e-20, 15);
   });
 
-  it('should return the product of a number and negative one', () => {
-    expect(multiply(5, -1)).toBe(-5);
-    expect(multiply(-5, -1)).toBe(5);
-  });
-
-  it('should handle fractional numbers correctly', () => {
-    expect(multiply(0.5, 2)).toBe(1);
-    expect(multiply(-0.5, 2)).toBe(-1);
-    expect(multiply(0.5, -2)).toBe(-1);
-    expect(multiply(-0.5, -2)).toBe(1);
+  it('should handle multiplication with floating-point precision', () => {
+    expect(multiply(0.1, 0.2)).toBeCloseTo(0.02, 10);
   });
 });

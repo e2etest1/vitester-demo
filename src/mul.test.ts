@@ -26,4 +26,22 @@ describe('multiply', () => {
   it('should handle large numbers correctly', () => {
     expect(multiply(1e10, 1e10)).toBe(1e20);
   });
+
+  it('should handle very small numbers correctly', () => {
+    expect(multiply(1e-10, 1e-10)).toBeCloseTo(1e-20);
+  });
+
+  it('should handle fractions correctly', () => {
+    expect(multiply(0.5, 0.2)).toBeCloseTo(0.1);
+  });
+
+  it('should handle non-integer values correctly', () => {
+    expect(multiply(2.5, 4)).toBe(10);
+    expect(multiply(3, 2.5)).toBe(7.5);
+  });
+
+  it('should handle negative fractions correctly', () => {
+    expect(multiply(-0.5, 0.2)).toBeCloseTo(-0.1);
+    expect(multiply(0.5, -0.2)).toBeCloseTo(-0.1);
+  });
 });

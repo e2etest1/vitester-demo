@@ -36,4 +36,18 @@ describe('multiply', () => {
     expect(multiply(-1, 5)).toBe(-5);
     expect(multiply(5, -1)).toBe(-5);
   });
+
+  it('should handle multiplication with decimal numbers', () => {
+    expect(multiply(2.5, 4)).toBe(10);
+    expect(multiply(3.5, 2)).toBe(7);
+  });
+
+  it('should handle multiplication with very small numbers', () => {
+    expect(multiply(0.0001, 0.0002)).toBeCloseTo(0.00000002, 10);
+  });
+
+  it('should handle multiplication with negative decimals', () => {
+    expect(multiply(-2.5, 4)).toBe(-10);
+    expect(multiply(3.5, -2)).toBe(-7);
+  });
 });

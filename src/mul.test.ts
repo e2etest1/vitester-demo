@@ -27,4 +27,21 @@ describe('multiply', () => {
   it('should return zero when both numbers are zero', () => {
     expect(multiply(0, 0)).toBe(0);
   });
+
+  it('should return the number itself when multiplied by one', () => {
+    expect(multiply(1, 5)).toBe(5);
+    expect(multiply(5, 1)).toBe(5);
+    expect(multiply(-1, 5)).toBe(-5);
+    expect(multiply(5, -1)).toBe(-5);
+  });
+
+  it('should handle very large numbers', () => {
+    expect(multiply(1e10, 1e10)).toBe(1e20);
+    expect(multiply(-1e10, 1e10)).toBe(-1e20);
+  });
+
+  it('should handle very small numbers', () => {
+    expect(multiply(1e-10, 1e-10)).toBeCloseTo(1e-20);
+    expect(multiply(-1e-10, 1e-10)).toBeCloseTo(-1e-20);
+  });
 });

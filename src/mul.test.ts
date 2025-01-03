@@ -31,4 +31,22 @@ describe('multiply', () => {
     expect(multiply(0.5, 2)).toBe(1);
     expect(multiply(-0.5, 2)).toBe(-1);
   });
+
+  it('should return the product of one and any number', () => {
+    expect(multiply(1, 123)).toBe(123);
+    expect(multiply(123, 1)).toBe(123);
+  });
+
+  it('should return the product of negative one and any number', () => {
+    expect(multiply(-1, 123)).toBe(-123);
+    expect(multiply(123, -1)).toBe(-123);
+  });
+
+  it('should handle very small numbers', () => {
+    expect(multiply(0.0001, 0.0002)).toBeCloseTo(0.00000002);
+  });
+
+  it('should handle very large numbers', () => {
+    expect(multiply(1e10, 1e10)).toBe(1e20);
+  });
 });

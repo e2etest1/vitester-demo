@@ -27,4 +27,12 @@ describe('multiply', () => {
     expect(multiply(2.5, 4)).toBe(10);
     expect(multiply(-2.5, 4)).toBe(-10);
   });
+
+  it('should handle very large numbers', () => {
+    expect(multiply(1e10, 1e10)).toBe(1e20);
+  });
+
+  it('should handle very small numbers', () => {
+    expect(multiply(1e-10, 1e-10)).toBeCloseTo(1e-20, 15);
+  });
 });

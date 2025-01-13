@@ -36,4 +36,20 @@ describe("multiply", () => {
   it("should handle very small numbers", () => {
     expect(multiply(0.0001, 0.0002)).toBeCloseTo(0.00000002, 10);
   });
+
+  it("should handle multiplication resulting in Infinity", () => {
+    expect(multiply(Number.MAX_VALUE, 2)).toBe(Infinity);
+    expect(multiply(-Number.MAX_VALUE, 2)).toBe(-Infinity);
+  });
+
+  it("should handle multiplication with NaN", () => {
+    expect(multiply(NaN, 2)).toBeNaN();
+    expect(multiply(2, NaN)).toBeNaN();
+  });
+
+  it("should handle multiplication with Infinity", () => {
+    expect(multiply(Infinity, 2)).toBe(Infinity);
+    expect(multiply(-Infinity, 2)).toBe(-Infinity);
+    expect(multiply(Infinity, 0)).toBeNaN();
+  });
 });

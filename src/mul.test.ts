@@ -30,4 +30,16 @@ describe('multiply', () => {
     expect(multiply(999999, 999999)).toBe(999998000001);
     expect(multiply(1000000, 1000000)).toBe(1000000000000);
   });
+
+  it('should handle Number.MAX_SAFE_INTEGER correctly', () => {
+    const maxSafeInt = Number.MAX_SAFE_INTEGER;
+    expect(multiply(maxSafeInt, 1)).toBe(maxSafeInt);
+    expect(multiply(1, maxSafeInt)).toBe(maxSafeInt);
+  });
+
+  it('should handle Number.MIN_SAFE_INTEGER correctly', () => {
+    const minSafeInt = Number.MIN_SAFE_INTEGER;
+    expect(multiply(minSafeInt, 1)).toBe(minSafeInt);
+    expect(multiply(1, minSafeInt)).toBe(minSafeInt);
+  });
 });

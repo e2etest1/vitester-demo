@@ -32,14 +32,12 @@ describe('multiply', () => {
   });
 
   it('should handle Number.MAX_SAFE_INTEGER correctly', () => {
-    const maxSafeInt = Number.MAX_SAFE_INTEGER;
-    expect(multiply(maxSafeInt, 1)).toBe(maxSafeInt);
-    expect(multiply(1, maxSafeInt)).toBe(maxSafeInt);
+    expect(multiply(Number.MAX_SAFE_INTEGER, 1)).toBe(Number.MAX_SAFE_INTEGER);
+    expect(multiply(1, Number.MAX_SAFE_INTEGER)).toBe(Number.MAX_SAFE_INTEGER);
   });
 
   it('should handle Number.MIN_SAFE_INTEGER correctly', () => {
-    const minSafeInt = Number.MIN_SAFE_INTEGER;
-    expect(multiply(minSafeInt, 1)).toBe(minSafeInt);
-    expect(multiply(1, minSafeInt)).toBe(minSafeInt);
+    expect(multiply(Number.MIN_SAFE_INTEGER, 1)).toBe(Number.MIN_SAFE_INTEGER);
+    expect(multiply(1, Number.MIN_SAFE_INTEGER)).toBe(Number.MIN_SAFE_INTEGER);
   });
 });

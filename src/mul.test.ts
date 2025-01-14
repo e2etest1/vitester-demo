@@ -30,4 +30,21 @@ describe('multiply', () => {
     expect(multiply(999999, 999999)).toBe(999998000001);
     expect(multiply(1000000, 1000000)).toBe(1000000000000);
   });
+
+  it('should handle very small decimal numbers', () => {
+    expect(multiply(0.0001, 0.0001)).toBeCloseTo(0.00000001);
+    expect(multiply(0.00001, 0.00001)).toBeCloseTo(0.0000000001);
+  });
+
+  it('should handle Number.MAX_SAFE_INTEGER', () => {
+    const max = Number.MAX_SAFE_INTEGER;
+    expect(multiply(max, 1)).toBe(max);
+    expect(multiply(1, max)).toBe(max);
+  });
+
+  it('should handle Number.MIN_SAFE_INTEGER', () => {
+    const min = Number.MIN_SAFE_INTEGER;
+    expect(multiply(min, 1)).toBe(min);
+    expect(multiply(1, min)).toBe(min);
+  });
 });

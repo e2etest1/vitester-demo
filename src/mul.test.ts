@@ -26,9 +26,24 @@ describe('multiply', () => {
   it('should multiply decimal numbers', () => {
     expect(multiply(0.5, 2)).toBe(1)
     expect(multiply(2.5, 2.5)).toBe(6.25)
+    expect(multiply(0.1, 0.2)).toBeCloseTo(0.02)
   })
 
   it('should handle large numbers', () => {
     expect(multiply(999999, 999999)).toBe(999998000001)
+    expect(multiply(Number.MAX_SAFE_INTEGER, 1)).toBe(Number.MAX_SAFE_INTEGER)
+  })
+
+  it('should handle very small numbers', () => {
+    expect(multiply(Number.MIN_VALUE, 2)).toBe(Number.MIN_VALUE * 2)
+    expect(multiply(1e-308, 1e-308)).toBeCloseTo(0)
+  })
+
+  it('should handle special values', () => {
+    expect(multiply(Infinity, 2)).toBe(Infinity)
+    expect(multiply(-Infinity, 2)).toBe(-Infinity)
+    expect(multiply(Infinity, -2)).toBe(-Infinity)
+    expect(multiply(NaN, 5)).toBe(NaN)
+    expect(multiply(5, NaN)).toBe(NaN)
   })
 })
